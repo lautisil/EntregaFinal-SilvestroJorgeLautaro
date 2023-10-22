@@ -3,21 +3,15 @@ import NavBar from './componentes/NavBar'
 import ItemListContainer from './componentes/ItemListContainer'
 import Componente from './componentes/Componente'
 import ItemCount from './componentes/ItemCount'
+import Item from './componentes/Item'
 import { useState } from 'react'
 
 
 const App = () => {
 
-  const tomarValor = (valor) => {
-    console.log(`Valor: ${valor}`)
-  }
-
   return (
     <>
-    <NavBar />
-    <ItemListContainer greeting={"Bienvenido a mi e-commerce"}/>
-    <Componente tomarValor={tomarValor}/>
-    <ItemCount />
+      <ItemListContainer />
     </>
   )
 }
@@ -25,7 +19,23 @@ const App = () => {
 export default App
 
 
-// props = informacion en objetos que se transmiten de componentes padres a componentes hijos
+/* <NavBar />
+    <ItemListContainer greeting={"Bienvenido a mi e-commerce"}/>
+    <Componente />
+    <ItemCount /> */
+
+/*
+ props = informacion en objetos que se transmiten de componentes padres a componentes hijos
+
+        useState
+ const ["variable", "funcion modificadora"] = useState(0) asignar valor inicial (array,true,false,bouleano)
+ Ejemplo:
+ const [cantidad, setCantidad] = useState(0)
+ console.log(cantidad)
+ 
+        promesas(fullfiled - rejected - pending)
+ */
+
 
 /*  
  //Varaibles
@@ -36,12 +46,8 @@ export default App
     nombre: "Juan",
     apellido: "Jose"
   }
-  const [texto, setTexto] = useState("texto inicial")
 
-  //useState
-  //const ["variable", "funcion modificadora"] useState(0) asignar valor inicial (array,true,false,bouleano)
-  const [cantidad, setCantidad] = useState(0)
-  console.log(cantidad) 
+ 
 
  {greeting}
 <Bienvenida nombre={nombre} miArray={miArray} persona={persona}/>
