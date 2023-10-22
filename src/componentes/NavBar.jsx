@@ -10,8 +10,8 @@ const NavBar = () => {
             <Box p='4' bg='red.400'>
               <h1>NaturAle</h1>  {/* Brand */}
             </Box>
-            <Spacer />
 
+            <Spacer />
             <Box p='4' bg='blue.400'>
               <Menu>
                 <MenuButton>
@@ -25,8 +25,8 @@ const NavBar = () => {
                 </MenuList>
               </Menu>
             </Box>
+            
             <Spacer />
-
             <Box p='4' bg='green.400'>
               <CartWidget /> {/* Carrito */}
             </Box>
