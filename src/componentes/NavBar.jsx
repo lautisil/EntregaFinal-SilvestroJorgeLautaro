@@ -21,19 +21,13 @@ const NavBar = () => {
           </MenuButton>
           <MenuList>
             <MenuItem>
-              <Link to={'/category/Tecnologia'}>
-                Tecnologia
-              </Link>
+              <Link to={'/category/Tecnologia'}>Tecnologia</Link>
             </MenuItem>
             <MenuItem>
-              <Link to={'/category/Electrodomesticos'}>
-                Electrodomesticos
-              </Link>
+              <Link to={'/category/Electrodomesticos'}>Electrodomesticos</Link>
             </MenuItem>
             <MenuItem>
-              <Link to={'/category/Ropa'}>
-                Ropa
-              </Link>
+              <Link to={'/category/Ropa'}>Ropa</Link>
             </MenuItem>
           </MenuList>
         </Menu>
