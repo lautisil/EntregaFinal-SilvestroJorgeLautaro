@@ -11,9 +11,8 @@ const ItemList = ({ productos }) => {
                     return(
                         <Item 
                             key={p.id}
-                            nombre={p.nombre}
-                            descripcion={p.descripcion}
-                            precio={p.precio}
+                            name={p.name}
+                            image={p.image}
                         />
                     )
                 })

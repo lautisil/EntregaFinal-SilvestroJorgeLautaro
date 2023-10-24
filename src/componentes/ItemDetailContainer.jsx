@@ -1,28 +1,10 @@
 import React from 'react'
-import ItemList from './ItemList'
 import listProducts from './ListProducts'
-import { useState,useEffect } from 'react'
-import { Center } from '@chakra-ui/react'
-import { Route } from 'react-router-dom'
+import ItemDetail from './ItemDetail'
 
-const ItemListContainer = () => {
+const ItemDetailContainer = () => {
 
   const productos = listProducts
-
-  return (
-    <>
-      <Center p="1rem">  
-        <ItemList productos={productos} />
-      </Center>
-    </>
-    
-  )
-}
-
-export default ItemListContainer
-
-
- /*
 
   const mostrarProductos = new Promise((resolve, reject) => {
     if (productos.length > 0) {
@@ -41,4 +23,11 @@ export default ItemListContainer
     .catch((error) => {
       console.log(error)
     })
- */
+  return (
+    <>
+      <ItemDetail productos={productos}/>
+    </>
+  )
+}
+
+export default ItemDetailContainer

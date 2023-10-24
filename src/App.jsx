@@ -1,18 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from './componentes/NavBar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ItemDetailContainer from './componentes/ItemDetailContainer'
 import ItemListContainer from './componentes/ItemListContainer'
-import Componente from './componentes/Componente'
-import ItemCount from './componentes/ItemCount'
-import Item from './componentes/Item'
-import { useState } from 'react'
-
+import ProductDetail from './ProductDetail'
+import ItemDetail from './componentes/ItemDetail'
 
 const App = () => {
 
   return (
-    <>
-      <ItemListContainer />
-    </>
+    <BrowserRouter>
+
+      <NavBar />
+
+      <Routes>
+
+        <Route exact path='/' element={<ItemListContainer />}/>
+        <Route exact path='/product/:id' element={<ItemDetailContainer />} />
+
+      </Routes>
+
+    </BrowserRouter>
   )
 }
 
