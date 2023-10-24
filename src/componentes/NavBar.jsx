@@ -18,21 +18,21 @@ const NavBar = () => {
       <Box p='4' bg='blue.400'>
         <Menu>
           <MenuButton>
-            Menu
+            Categorias
           </MenuButton>
           <MenuList>
             <MenuItem>
-              <Link to={""}>
-                Tecnoliga
+              <Link to={'/category/Tecnologia'}>
+                Tecnologia
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={""}>
-                Electrdomesticos
+              <Link to={'/category/Electrodomesticos'}>
+                Electrodomesticos
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={""}>
+              <Link to={'/category/Ropa'}>
                 Ropa
               </Link>
             </MenuItem>

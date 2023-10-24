@@ -3,8 +3,6 @@ import NavBar from './componentes/NavBar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ItemDetailContainer from './componentes/ItemDetailContainer'
 import ItemListContainer from './componentes/ItemListContainer'
-import ProductDetail from './ProductDetail'
-import ItemDetail from './componentes/ItemDetail'
 
 const App = () => {
 
@@ -16,7 +14,8 @@ const App = () => {
       <Routes>
 
         <Route exact path='/' element={<ItemListContainer />}/>
-        <Route exact path='/product/:id' element={<ItemDetailContainer />} />
+        <Route exact path='/category/:categoryID' element={<ItemListContainer />}/>
+        <Route exact path='/item/:id' element={<ItemDetailContainer />} />
 
       </Routes>
 

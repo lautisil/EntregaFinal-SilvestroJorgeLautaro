@@ -9,7 +9,7 @@ const listProducts = [
     },
     {
       id:"2",
-      category: "Electrodomestico",
+      category: "Electrodomesticos",
       name:"Frezzer CongelaTodo",
       description:"Descripcion del producto B",
       stock: 20,
@@ -41,7 +41,7 @@ const listProducts = [
     },
     {
       id:"6",
-      category: "Electrodomestico",
+      category: "Electrodomesticos",
       name:"Heladera SiempreFrio",
       description:"Descripcion del producto D",
       stock: 20,

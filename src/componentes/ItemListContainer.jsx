@@ -1,34 +1,32 @@
 import React from 'react'
 import ItemList from './ItemList'
 import listProducts from './ListProducts'
-import { useState,useEffect } from 'react'
 import { Center } from '@chakra-ui/react'
-import { Route } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const ItemListContainer = () => {
 
-  const productos = listProducts
+  const {categoryID} = useParams()
 
-  return (
-    <>
-      <Center p="1rem">  
-        <ItemList productos={productos} />
-      </Center>
-    </>
-    
-  )
-}
+  const [products, setProductos] = useState([])
+  
+  useEffect(() => {
 
-export default ItemListContainer
+      if (categoryID !== undefined) {
+          const productCategory = listProducts.filter((ItemList) => ItemList.category == categoryID)
+          setProductos(productCategory)
 
-
- /*
+      } else {
+          setProductos(listProducts)
+      }
+  }, [categoryID])
 
   const mostrarProductos = new Promise((resolve, reject) => {
-    if (productos.length > 0) {
+    if (listProducts.length > 0) {
       setTimeout(() => {  //simular demora
-        resolve(productos)
-      }, 3000)
+        resolve(listProducts)
+      }, 2000)
     } else {
       reject("No se encontraron productos")
     }
@@ -41,4 +39,16 @@ export default ItemListContainer
     .catch((error) => {
       console.log(error)
     })
- */
+ 
+  return (
+    <>
+      <Center p="1rem">  
+        <ItemList products={products} />
+      </Center>
+    </>
+    
+  )
+}
+
+export default ItemListContainer
+
