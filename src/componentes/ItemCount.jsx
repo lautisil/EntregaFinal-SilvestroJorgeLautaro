@@ -1,3 +1,4 @@
+import { Box, Button, Flex, Spacer } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
 const ItemCount = () => {
@@ -17,12 +18,17 @@ const ItemCount = () => {
     }
 
      return (
-       <div>
-        <p>{contador}</p>
-        <button onClick={(suma)}>Sumar</button>
-        <button onClick={(resta)}>Restar</button>
-        <button onClick={agregar}>Añadir al carrito</button>
-       </div>
+       <Flex>
+            <Box>
+                <Button variant="outline" colorScheme='white' onClick={resta}>-</Button>
+                <Button>{contador}</Button>
+                <Button variant="outline" colorScheme='white' onClick={suma}>+</Button>
+            </Box>
+            <Spacer />
+            <Box>
+                <Button onClick={agregar}>Añadir al carrito</Button>
+            </Box>
+       </Flex>
      )
 }
 

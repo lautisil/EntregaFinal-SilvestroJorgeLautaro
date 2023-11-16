@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
 
       <NavBar />
-
+      
       <Routes>
 
         <Route exact path='/' element={<ItemListContainer />}/>
@@ -25,6 +25,19 @@ const App = () => {
 
 export default App
 
+/* const sinVocales = (e) => {
+  if ( 
+    e.key === "a"  ||
+    e.key === "e"  ||
+    e.key === "i"  ||
+    e.key === "o"  ||
+    e.key === "u"
+  ) {
+    e.preventDefault()
+  } else {
+    console.log(e.key)
+  }
+} */
 
 /* <NavBar />
     <ItemListContainer greeting={"Bienvenido a mi e-commerce"}/>
