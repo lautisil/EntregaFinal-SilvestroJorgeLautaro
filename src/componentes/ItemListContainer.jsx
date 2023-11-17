@@ -12,7 +12,6 @@ const ItemListContainer = () => {
   const [products, setProductos] = useState([])
   
   useEffect(() => {
-
       if (categoryID !== undefined) {
           const productCategory = listProducts.filter((ItemList) => ItemList.category == categoryID)
           setProductos(productCategory)

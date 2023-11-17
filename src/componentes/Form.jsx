@@ -22,7 +22,7 @@ const Form = () => {
             <FormLabel>Email</FormLabel>
             <Input placeholder='Email' onChange={(e)=> setEmail(e.target.value)}/>
 
-            <Button type='submit'>Enviar</Button>
+            <Button type='useSubmit'>Enviar</Button>
         </FormControl>
   )
 }

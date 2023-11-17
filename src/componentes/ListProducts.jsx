@@ -5,7 +5,8 @@ const listProducts = [
       name:"Samsung XL 5000",
       description:"Descripcion del producto A",
       stock: 10,
-      price: 1000
+      price: 1000,
+      count:0
     },
     {
       id:"2",
@@ -13,7 +14,8 @@ const listProducts = [
       name:"Frezzer CongelaTodo",
       description:"Descripcion del producto B",
       stock: 20,
-      price: 2000
+      price: 2000,
+      count:0
     },
     {
       id:"3",
@@ -21,7 +23,8 @@ const listProducts = [
       name:"Notebook ATodaMaquina sgh5000",
       description:"Descripcion del producto C",
       stock: 30,
-      price: 3000
+      price: 3000,
+      count:0
     },
     {
       id:"4",
@@ -29,7 +32,8 @@ const listProducts = [
       name:"Remera elegante SS",
       description:"Descripcion del producto D",
       stock: 40,
-      price: 4000
+      price: 4000,
+      count:0
     },
     {
       id:"5",
@@ -37,7 +41,8 @@ const listProducts = [
       name:"Chaleco deportivo JhonFusse",
       description:"Descripcion del producto D",
       stock: 50,
-      price: 5000
+      price: 5000,
+      count:0
     },
     {
       id:"6",
@@ -45,7 +50,8 @@ const listProducts = [
       name:"Heladera SiempreFrio",
       description:"Descripcion del producto D",
       stock: 20,
-      price: 6000
+      price: 6000,
+      count:0
     },
     {
       id:"7",
@@ -53,7 +59,8 @@ const listProducts = [
       name:"Nike StreetDeportive",
       description:"Descripcion del producto D",
       stock: 70,
-      price: 7000
+      price: 7000,
+      count:0
     }
   ]
 
