@@ -18,8 +18,8 @@ export const ShoppingCartProvider =({ children }) => {
         if (exsiteProductoEnCarrito) {
             exsiteProductoEnCarrito.cantidad += cantidad
             setCart((cartOld) => cartOld.map(
-                (p) => (p.id === id ? exsiteProductoEnCarrito : p))
-                )
+                (p) => (p.id === id ? exsiteProductoEnCarrito : p)
+                ))
         } else {
             const nuevoProducto = {...productFilterID, cantidad}
             setCart((cartOld) => [...cartOld, nuevoProducto])
@@ -55,9 +55,6 @@ export const ShoppingCartProvider =({ children }) => {
         return total
     }
 
-    console.log(cart);
-    console.log(cartCantidad);
-
     return (
         <CartContext.Provider value={
             {
@@ -78,6 +75,5 @@ export const ShoppingCartProvider =({ children }) => {
     )
 
 }
-
 
 export default ShoppingCartProvider

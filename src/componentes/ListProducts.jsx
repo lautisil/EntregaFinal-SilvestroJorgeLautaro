@@ -1,7 +1,7 @@
 const listProducts = [
     {
       id:"1",
-      category: "Tecnologia",
+      category: "cremas",
       name:"Samsung XL 5000",
       description:"Descripcion del producto A",
       stock: 10,
@@ -10,7 +10,7 @@ const listProducts = [
     },
     {
       id:"2",
-      category: "Electrodomesticos",
+      category: "perfumes",
       name:"Frezzer CongelaTodo",
       description:"Descripcion del producto B",
       stock: 20,
@@ -19,7 +19,7 @@ const listProducts = [
     },
     {
       id:"3",
-      category: "Tecnologia",
+      category: "cremas",
       name:"Notebook ATodaMaquina sgh5000",
       description:"Descripcion del producto C",
       stock: 30,
@@ -28,7 +28,7 @@ const listProducts = [
     },
     {
       id:"4",
-      category: "Ropa",
+      category: "anti-transpirantes",
       name:"Remera elegante SS",
       description:"Descripcion del producto D",
       stock: 40,
@@ -37,7 +37,7 @@ const listProducts = [
     },
     {
       id:"5",
-      category: "Ropa",
+      category: "anti-transpirantes",
       name:"Chaleco deportivo JhonFusse",
       description:"Descripcion del producto D",
       stock: 50,
@@ -46,7 +46,7 @@ const listProducts = [
     },
     {
       id:"6",
-      category: "Electrodomesticos",
+      category: "perfumes",
       name:"Heladera SiempreFrio",
       description:"Descripcion del producto D",
       stock: 20,
@@ -55,7 +55,7 @@ const listProducts = [
     },
     {
       id:"7",
-      category: "Ropa",
+      category: "anti-transpirantes",
       name:"Nike StreetDeportive",
       description:"Descripcion del producto D",
       stock: 70,

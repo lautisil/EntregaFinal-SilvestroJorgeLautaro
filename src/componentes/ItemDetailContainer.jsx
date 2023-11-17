@@ -1,37 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import listProducts from './ListProducts';
 import { Center, Spinner, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
-  const {id} = useParams()
+  const { id } = useParams()
   const [productoFiltrado, setProducto] = useState([])
-  const [loader, setLoader] = useState([])
- 
+  const [loader, setLoader] = useState(true)
+
   useEffect(() => {
-    const productFilterID = listProducts.find((item) => item.id === id)
+    const fetchData = async () => {
+      const db = getFirestore();
+      const oneItem = doc(db, 'natura', `${id}`);
 
-    const mostrarProductos = new Promise((resolve, reject) => {
-      if (productFilterID) {
-        setTimeout(() => {
-          resolve(productFilterID)
-        }, 2000)
-      } else {
-        reject("No se encontraron productos")
+      try {
+        const snapshot = await getDoc(oneItem);
+
+        if (snapshot.exists())
+        {
+          const data = snapshot.data();
+          setProducto({ id: id, ...data });
+        } 
+        else
+        {
+          console.log('No se encontró el producto');
+        }
+      } 
+      catch (error) 
+      {
+        console.error('Error fetching data:', error);
+      } 
+      finally 
+      {
+        setLoader(false);
       }
-    })
+    };
 
-    mostrarProductos
-    .then((resultado) => {
-      setLoader(false);
-      setProducto(resultado); // Actualiza el estado con los resultados
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-}, [id])
+    fetchData();
+  }, [id, setProducto, setLoader]);
+
+  console.log(productoFiltrado);
 
   return (
     <>
@@ -49,19 +59,3 @@ const ItemDetailContainer = () => {
 }
 
 export default ItemDetailContainer
-
-/* {
-  productFilterID.map((p) => {
-    return (
-      <ItemDetail
-      key={p.id}
-      id={p.id}
-      name={p.name}
-      description={p.description}
-      price={p.price}
-      image={p.image}
-      stock={p.stock}
-      />
-    )
-  })
-} */

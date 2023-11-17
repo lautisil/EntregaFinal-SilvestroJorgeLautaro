@@ -1,30 +1,57 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FormControl, FormLabel, Input, Button, Spacer, Divider} from '@chakra-ui/react'
 
-const Form = () => {
+const Formulario = () => {
 
 
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
+    const [orderId, setOrderId] = useState("")
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log(email);
+        console.log(nombre);
+      };
 
-        console.log(nombre)
-        console.log(email)
-    }
+      const order = {
+        nombre,
+        email,
+      }
+
 
   return (
-        <FormControl isRequired onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+        <FormControl isRequired >
             <FormLabel>Nombre completo</FormLabel>
-            <Input placeholder='Nombre completo' onChange={(e)=> setNombre(e.target.value)}/>
+            <Input placeholder='Nombre completo' type='text' name='nombre'
+              onChange={(e) => setNombre(e.target.value)}/>
             
             <FormLabel>Email</FormLabel>
-            <Input placeholder='Email' onChange={(e)=> setEmail(e.target.value)}/>
+            <Input placeholder='Email' type='text' name='email'
+              onChange={(e) => setEmail(e.target.value)}/>
 
-            <Button type='useSubmit'>Enviar</Button>
+            <Button colorScheme="blue" type="submit">
+                Finalizar compra
+            </Button>
         </FormControl>
+    </form>
   )
 }
 
-export default Form
+export default Formulario
+
+
+/* 
+<FormControl isRequired onSubmit={handleSubmit}>
+<FormLabel>Nombre completo</FormLabel>
+<Input placeholder='Nombre completo' onChange={(e)=> setNombre(e.target.value)}/>
+
+<FormLabel>Email</FormLabel>
+<Input placeholder='Email' type='text' name='email' value={formData.email}
+  onChange={(e)=> setEmail(e.target.value)}/>
+
+<Button colorScheme="blue" type="submit">
+    Enviar
+</Button>
+</FormControl> */

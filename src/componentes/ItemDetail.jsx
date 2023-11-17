@@ -31,8 +31,6 @@ const ItemDetail = ( {productoFiltrado} ) => {
       : ""
   }
 
-  console.log(cantidad);
-
   return (
     <>
       <Card maxW='sm'>
