@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import { Center, Spinner, Text } from '@chakra-ui/react';
+import { Center, Spinner, Text } from '@chakra-ui/react'; 
 import { useParams } from 'react-router-dom';
-import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
@@ -11,44 +11,26 @@ const ItemDetailContainer = () => {
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
-    const fetchData = async () => {
-      const db = getFirestore();
-      const oneItem = doc(db, 'natura', `${id}`);
+    const db = getFirestore();
+    const oneItem = doc(db, "natura", `${id}`);
 
-      try {
-        const snapshot = await getDoc(oneItem);
-
-        if (snapshot.exists())
-        {
-          const data = snapshot.data();
-          setProducto({ id: id, ...data });
-        } 
-        else
-        {
-          console.log('No se encontró el producto');
+      getDoc(oneItem).then((snapshot) => {
+        if (snapshot.exists()){
+          const docs = snapshot.data()
+          setProducto(docs)
+          setLoader(false)
+        } else {
+          setLoader(false)
         }
-      } 
-      catch (error) 
-      {
-        console.error('Error fetching data:', error);
-      } 
-      finally 
-      {
-        setLoader(false);
-      }
-    };
-
-    fetchData();
-  }, [id, setProducto, setLoader]);
-
-  console.log(productoFiltrado);
+      })
+  }, [id]);
 
   return (
     <>
       <Center p="1rem">
         {loader ? (
           <Spinner size="xl" />
-        ) : productoFiltrado ? (
+        ) : productoFiltrado ? ( 
           <ItemDetail productoFiltrado={productoFiltrado} />
         ) : (
           <Text>No se encontraron productos</Text>

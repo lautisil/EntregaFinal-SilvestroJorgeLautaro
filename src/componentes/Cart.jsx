@@ -1,15 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CartContext } from '../context/ShoppingCartContext'
 import { Center, Divider, Button, Text, Spacer } from '@chakra-ui/react'
 import Formulario from './Form'
 
 const Cart = () => {
 
-  const { cart, eliminarProducto, cartTotal} = useContext(CartContext)
-
+  const { cart, eliminarProducto, cartTotal, limpiarCart} = useContext(CartContext)
 
   return (
-
     <>
     <Center>
       {cart.length === 0 ? (
@@ -30,12 +28,20 @@ const Cart = () => {
           <Text >Precio: ${p.price}</Text>
           <Text >Total/producto:${p.price * p.cantidad}</Text>
           <Spacer />
-          <Button colorScheme="red" onClick={() => eliminarProducto(p.id)}> Eliminar producto</Button>
+          <Button colorScheme="red" onClick={() => eliminarProducto(p.id)}>
+             Eliminar producto
+          </Button>
           <Spacer />
         </article></>
       ))}
+
       <Divider />
-      <h3 className='mt-3'>Total: ${cartTotal()}</h3>
+
+      <h3 className='mt-3'>Total del carrito: ${cartTotal()}</h3>
+      <Button onClick={limpiarCart}>
+         Vaciar carrito
+      </Button>
+
       <Formulario />
     </div>
     )}

@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { FormControl, FormLabel, Input, Button, Spacer, Divider} from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { FormControl, FormLabel, Input, Button, Text, } from '@chakra-ui/react'
+import { getFirestore, addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const Formulario = () => {
 
@@ -8,17 +10,48 @@ const Formulario = () => {
     const [email, setEmail] = useState("")
     const [orderId, setOrderId] = useState("")
 
+    const db = getFirestore()
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
-        console.log(nombre);
-      };
-
-      const order = {
-        nombre,
-        email,
+      e.preventDefault();
+  
+      Swal.fire({
+        title: `Desea Finalizar la compra?`,
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(/images/trees.png)",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si"
+      }).then((resultado) => {
+        if (resultado.isConfirmed) {
+          
+          addDoc(orderCollection, order).then(({id}) => {
+            setOrderId(id);
+          })
+        }
+      })  
+    }
+  
+    useEffect(() => {
+      if(orderId!==""){
+        Swal.fire(`Gracias por su compra, tu orden de compra es: ${orderId}`)
+              .then(() => {
+                vaciarCarrito();
+              }) 
+              
       }
-
+    }, [orderId])	
+  
+  
+    const order={
+      nombre,
+      email,
+    }
+  
+    const orderCollection=collection(db,"orders");  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -34,24 +67,12 @@ const Formulario = () => {
             <Button colorScheme="blue" type="submit">
                 Finalizar compra
             </Button>
+            <Text>
+              Numero de orden: {orderId}
+            </Text>
         </FormControl>
     </form>
   )
 }
 
 export default Formulario
-
-
-/* 
-<FormControl isRequired onSubmit={handleSubmit}>
-<FormLabel>Nombre completo</FormLabel>
-<Input placeholder='Nombre completo' onChange={(e)=> setNombre(e.target.value)}/>
-
-<FormLabel>Email</FormLabel>
-<Input placeholder='Email' type='text' name='email' value={formData.email}
-  onChange={(e)=> setEmail(e.target.value)}/>
-
-<Button colorScheme="blue" type="submit">
-    Enviar
-</Button>
-</FormControl> */
