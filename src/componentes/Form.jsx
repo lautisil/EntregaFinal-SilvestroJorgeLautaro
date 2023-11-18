@@ -51,7 +51,7 @@ const Formulario = () => {
       email,
     }
   
-    const orderCollection=collection(db,"orders");  
+    const orderCollection=collection(db,"ordersReact");  
 
   return (
     <form onSubmit={handleSubmit}>
