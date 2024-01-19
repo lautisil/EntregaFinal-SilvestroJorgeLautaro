@@ -1,0 +1,20 @@
+cd desktop
+npm init vite@latest
+
+cd "nombre"
+npm install
+**npm run dev** cada vez que se inicia el proyecto en vsc
+code . (para abrir el vsc con la carpeta)
+
+--------------------------
+los componentes dentro de una carpeta llamada... (ver en clase 3)
+
+todo componente de react debe devolver unicamente una sola cosa
+
+los componentes empiezan con mayuscula y terminal con .jsx
+
+props -> son objetos
+
+existen patrones de componentes. por ejemplo estos 2: componentes contenedores y componentes de presentacion. el 1 es el que aloja la logica, llamado a la api, backend, json. el 2 tiene la responsabilidad de mostrar en pantalla el resultado. Como se pasa la informacion? Con props
+
+2da pre entrega, no evaluan control de stock, que cuente maximo 10 como stock o aprox
